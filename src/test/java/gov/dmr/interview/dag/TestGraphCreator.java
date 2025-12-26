@@ -134,4 +134,18 @@ public class TestGraphCreator {
         }
         return new DirectedAcyclicGraph<>(vertices);
     }
+
+    public DirectedAcyclicGraph<Integer> createWideGraph(int size) {
+        ArrayList<Vertex<Integer>> vertices = new ArrayList<>();
+
+        for(int i = 0; i < size; i++) {
+            vertices.add(new Vertex<>(i));
+        }
+
+        Vertex<Integer> firstVertex = vertices.get(0);
+        for(int i = 1; i < size; i++) {
+            firstVertex.addNeighbor(vertices.get(i));
+        }
+        return new DirectedAcyclicGraph<>(vertices);
+    }
 }
